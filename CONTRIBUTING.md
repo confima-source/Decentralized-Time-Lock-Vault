@@ -1,54 +1,22 @@
 # Contributing
 
-Thank you for your interest in contributing to the Decentralized Time-Lock Vault!
+## Branch naming
+- `feat/<short-description>` — new features
+- `fix/<short-description>` — bug fixes
+- `docs/<short-description>` — documentation only
+- `chore/<short-description>` — maintenance / tooling
 
-## Branch Naming
-
-| Type | Pattern | Example |
-|---|---|---|
-| New feature | `feat/<short-description>` | `feat/multi-token-support` |
-| Bug fix | `fix/<short-description>` | `fix/unlock-time-overflow` |
-| Chore / tooling | `chore/<short-description>` | `chore/update-dependencies` |
-| Docs | `docs/<short-description>` | `docs/contributing-guide` |
-
-## Commit Messages
-
+## Commit conventions
 Follow [Conventional Commits](https://www.conventionalcommits.org/):
-
 ```
-<type>(<scope>): <short summary>
-
-[optional body]
-```
-
-Common types: `feat`, `fix`, `docs`, `chore`, `test`, `refactor`, `ci`.
-
-Examples:
-```
-feat(contract): add multi-depositor support
-fix(storage): correct TTL bump on emergency withdraw
-docs: add CONTRIBUTING.md
+feat: add partial withdrawal support
+fix: prevent re-entrancy on cancel_deposit
+docs: update README fee section
+chore: bump soroban-sdk to v23
 ```
 
-## Local Development
-
-```bash
-# Full check: fmt + clippy + tests
-make check
-
-# Build optimized WASM and report size
-make build && make optimize
-```
-
-## Before Opening a PR
-
-- [ ] `make check` passes locally
-- [ ] New tests added for any new behaviour
-- [ ] README updated if the public API changed
-- [ ] WASM size has not grown unexpectedly (`make optimize` then check artifact size)
-
-## Submitting a PR
-
-1. Push your branch and open a PR against `main`.
-2. Fill in the PR description with a summary of changes and what was tested.
-3. Link any related issue with `Closes #<issue-number>`.
+## PR checklist
+- [ ] `make check` passes (fmt + lint + test)
+- [ ] New behaviour is covered by tests
+- [ ] README updated if public API changed
+- [ ] No secrets or private keys committed
